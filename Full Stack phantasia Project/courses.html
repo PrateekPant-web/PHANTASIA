@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech Platform - Courses</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/custom-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body onload="forceNavVisibility()">
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="img/logo.svg" alt="EdTech Logo" class="logo-img" width="200" height="200">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+                <li class="active"><a href="courses.html"><i class="fas fa-book"></i> <span>Courses</span></a></li>
+                <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a></li>
+                <li><a href="achievements.html"><i class="fas fa-trophy achievement-icon" style="color: #f97316 !important;"></i> <span>Achievements</span></a></li>
+                <li><a href="community.html"><i class="fas fa-users"></i> <span>Community</span></a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+            <div class="user-info">
+                <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Prateek Pant">
+                <div>
+                    <h4>Prateek Pant</h4>
+                    <p>Premium Student</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for courses, topics...">
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-container" data-tooltip="Toggle Dark Mode">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button class="message-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></button>
+                    <a href="login/login.html" class="login-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+
+            <div class="courses-container">
+                <div class="courses-header">
+                    <h1>Browse Courses</h1>
+                    <p>Discover courses to enhance your skills and advance your career</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="courses-filter">
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <label>Category</label>
+                            <select>
+                                <option value="all">All Categories</option>
+                                <option value="webdev">Web Development</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="datascience">Data Science</option>
+                                <option value="mobile">Mobile Development</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Level</label>
+                            <select>
+                                <option value="all">All Levels</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Duration</label>
+                            <select>
+                                <option value="all">Any Duration</option>
+                                <option value="short">Less than 3 hours</option>
+                                <option value="medium">3-6 hours</option>
+                                <option value="long">6+ hours</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Rating</label>
+                            <select>
+                                <option value="all">Any Rating</option>
+                                <option value="4plus">4.0 & above</option>
+                                <option value="4.5plus">4.5 & above</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-th-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="courses-grid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg" alt="Web Development">
+                            <div class="course-ribbon">Bestseller</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Web Development</div>
+                            <h3 class="course-title">Complete Web Development Bootcamp</h3>
+                            <div class="course-instructor">Sarah Johnson</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span> (2,456)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 42 hours</span>
+                                <span><i class="far fa-user"></i> 15,820</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 25%;"></div>
+                                </div>
+                                <span>25% completed</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Continue Learning</button>
+                                <button class="btn-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149065782.jpg" alt="UI/UX Design">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">UI/UX Design</div>
+                            <h3 class="course-title">UI/UX Design Fundamentals</h3>
+                            <div class="course-instructor">Michael Lee</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span> (1,876)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 28 hours</span>
+                                <span><i class="far fa-user"></i> 12,540</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Enroll Now</button>
+                                <button class="btn-icon">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-vector/machine-learning-in-python_1361-3330.jpg" alt="Machine Learning in Python">
+                            <div class="course-ribbon">New</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Data Science</div>
+                            <h3 class="course-title">Python for Data Science and Machine Learning</h3>
+                            <div class="course-instructor">David Wilson</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span> (986)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 36 hours</span>
+                                <span><i class="far fa-user"></i> 8,740</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Enroll Now</button>
+                                <button class="btn-icon">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-vector/gradient-mobile-development-background_52683-49992.jpg" alt="Mobile Development">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Mobile Development</div>
+                            <h3 class="course-title">Flutter & Dart - Complete App Development</h3>
+                            <div class="course-instructor">Emma Clark</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span> (1,245)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 32 hours</span>
+                                <span><i class="far fa-user"></i> 6,890</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 15%;"></div>
+                                </div>
+                                <span>15% completed</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Continue Learning</button>
+                                <button class="btn-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 5 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-photo/creative-designer-working-design-project_23-2149279880.jpg" alt="Graphic Design">
+                            <div class="course-ribbon">Bestseller</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Graphic Design</div>
+                            <h3 class="course-title">Adobe Photoshop Masterclass</h3>
+                            <div class="course-instructor">Lisa Tang</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span> (3,421)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 24 hours</span>
+                                <span><i class="far fa-user"></i> 21,340</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Enroll Now</button>
+                                <button class="btn-icon">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 6 -->
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://img.freepik.com/free-vector/gradient-javascript-background_23-2149330728.jpg" alt="JavaScript">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Web Development</div>
+                            <h3 class="course-title">Advanced JavaScript Concepts</h3>
+                            <div class="course-instructor">Jason Rodriguez</div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.2</span> (1,068)
+                            </div>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 18 hours</span>
+                                <span><i class="far fa-user"></i> 9,780</span>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn-primary">Enroll Now</button>
+                                <button class="btn-icon">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="pagination-number active">1</button>
+                    <button class="pagination-number">2</button>
+                    <button class="pagination-number">3</button>
+                    <button class="pagination-number">4</button>
+                    <button class="pagination-number">5</button>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/courses.js"></script>
+    <script src="js/trophy-fix.js"></script>
+</body>
+</html> 

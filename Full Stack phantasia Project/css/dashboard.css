@@ -1,0 +1,869 @@
+/* Dashboard Styles */
+.dashboard {
+    padding: 1.5rem;
+}
+
+.welcome-message {
+    margin-bottom: 2rem;
+}
+
+.welcome-message h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wave {
+    animation: wave 2s infinite;
+    display: inline-block;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* Stats Overview */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.course-icon {
+    background-color: #4f46e5;
+}
+
+.time-icon {
+    background-color: #10b981;
+}
+
+.certificate-icon {
+    background-color: #f97316;
+}
+
+.streak-icon {
+    background-color: #ef4444;
+}
+
+.stat-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 0.25rem;
+}
+
+.stat-info p {
+    color: #64748b;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+/* Hover animations for dashboard cards */
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Special hover effect for Learning Progress card */
+.learning-progress:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 25px rgba(79, 70, 229, 0.2);
+}
+
+.learning-progress:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+}
+
+.learning-progress:hover .chart-container {
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+/* Special hover effect for Recent Activity card */
+.recent-activity:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.2);
+}
+
+.recent-activity:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.recent-activity:hover .activity-item {
+    transform: translateX(5px);
+    background-color: rgba(16, 185, 129, 0.03);
+}
+
+/* Special hover effect for Deadlines card */
+.deadlines:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 25px rgba(249, 115, 22, 0.2);
+}
+
+.deadlines:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #f97316, #fb923c);
+}
+
+.deadlines:hover .deadline-item {
+    transform: translateX(5px);
+    background-color: rgba(249, 115, 22, 0.03);
+}
+
+/* Special hover effect for Recommended card */
+.recommended:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 25px rgba(168, 85, 247, 0.2);
+}
+
+.recommended:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #a855f7, #d946ef);
+}
+
+.recommended:hover .recommended-course {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recommended:hover .recommended-course img {
+    transform: scale(1.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.card-header h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: A0;
+    color: #1e293b;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown button:hover {
+    color: #4f46e5;
+}
+
+/* Chart Container */
+.chart-container {
+    padding: 1.25rem;
+    height: 250px;
+    transition: all 0.3s ease;
+}
+
+/* Activity List */
+.activity-list {
+    padding: 0.75rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(10px);
+}
+
+.activity-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover .activity-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.activity-icon.completed {
+    background-color: #10b981;
+}
+
+.activity-icon.watched {
+    background-color: #3b82f6;
+}
+
+.activity-icon.earned {
+    background-color: #f97316;
+}
+
+.activity-icon.submitted {
+    background-color: #8b5cf6;
+}
+
+.activity-details h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    color: #1e293b;
+}
+
+.activity-details p {
+    color: #64748b;
+    margin: 0;
+    font-size: 0.8125rem;
+}
+
+/* Deadline List */
+.deadline-list {
+    padding: 0.75rem;
+}
+
+.deadline-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.deadline-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(10px);
+}
+
+.deadline-item.urgent {
+    background-color: rgba(239, 68, 68, 0.05);
+    border-left: 3px solid #ef4444;
+}
+
+.deadline-item.urgent:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.deadline-date {
+    width: 3rem;
+    height: 3.5rem;
+    background-color: #f1f5f9;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.deadline-item:hover .deadline-date {
+    transform: scale(1.1) rotate(-3deg);
+    background-color: #4f46e5;
+    color: white;
+}
+
+.deadline-date h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.deadline-date p {
+    font-size: 0.75rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.deadline-details {
+    flex: 1;
+}
+
+.deadline-details h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    color: #1e293b;
+}
+
+.deadline-details p {
+    color: #64748b;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+.deadline-progress {
+    background-color: #f1f5f9;
+    height: 0.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+    border-radius: 1rem;
+    transition: width 0.5s ease;
+}
+
+.deadline-progress span {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* Course Recommendations */
+.course-recommendations {
+    padding: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.recommended-course {
+    display: flex;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.recommended-course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recommended-course img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.course-info {
+    padding: 0.75rem;
+    flex: 1;
+}
+
+.course-level {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    background-color: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-info h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    color: #1e293b;
+}
+
+.course-info p {
+    color: #64748b;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Item hover animation */
+.activity-item, .deadline-item, .recommended-course {
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-item::after, .deadline-item::after, .recommended-course::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transition: all 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.activity-item:hover::after, .deadline-item:hover::after, .recommended-course:hover::after {
+    left: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommended-course {
+        flex-direction: column;
+    }
+    
+    .recommended-course img {
+        width: 100%;
+        height: 120px;
+    }
+}
+
+/* Dark Mode Styles */
+.dark-mode .dashboard-card,
+.dark-mode .stat-card {
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .card-header {
+    border-bottom-color: #334155;
+}
+
+.dark-mode .card-header h2,
+.dark-mode .activity-details h4,
+.dark-mode .deadline-details h4,
+.dark-mode .course-info h4,
+.dark-mode .stat-info h3 {
+    color: #e2e8f0;
+}
+
+.dark-mode .deadline-date,
+.dark-mode .deadline-progress,
+.dark-mode .recommended-course {
+    background-color: #334155;
+}
+
+.dark-mode .activity-item:hover,
+.dark-mode .deadline-item:hover {
+    background-color: #334155;
+}
+
+.dark-mode .dropdown button:hover {
+    color: #818cf8;
+}
+
+.dark-mode .progress-bar {
+    background: linear-gradient(90deg, #6366f1, #a78bfa);
+}
+
+/* CSS animation for pulse effect on hover */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes rotateSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stat-card:hover .stat-icon {
+    animation: pulse 1.5s infinite;
+}
+
+.stat-card:hover .stat-info h3 {
+    animation: bounce 0.6s ease infinite;
+}
+
+/* Add animations to specific section elements */
+.recent-activity:hover .activity-icon i {
+    animation: rotateSpin 1.5s ease infinite;
+}
+
+/* Missing fadeInUp animation keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Shine effect */
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+        transform: translateX(300%) rotate(25deg);
+    }
+}
+
+.shine-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%) rotate(25deg);
+    animation: shine 1s ease-in-out;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Animation for dashboard card when it appears in view */
+.dashboard-card.animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Animation for deadline date when hovered */
+.deadline-date.animated {
+    animation: bounce 0.6s ease infinite;
+}
+
+/* Additional hover effects */
+.dashboard-card {
+    overflow: hidden;
+}
+
+.dashboard-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, transparent);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover::after {
+    transform: translateY(0);
+}
+
+/* Enhanced hover for recommended courses */
+.recommended-course:hover .course-level {
+    background-color: rgba(79, 70, 229, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Card header hover */
+.card-header h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.card-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4f46e5, transparent);
+    transition: width 0.3s ease;
+}
+
+.dashboard-card:hover .card-header h2::after {
+    width: 100%;
+}
+
+/* Enhanced hover states for all icons */
+.stat-icon, .activity-icon, .deadline-date {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Dark mode animation adjustments */
+.dark-mode .shine-effect {
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* Animate the wave emoji in dark mode */
+.dark-mode .wave {
+    filter: brightness(1.2);
+}
+
+/* Enhanced progress bar animation */
+.progress-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Theme toggle animation */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.theme-toggle:hover::after {
+    width: 150%;
+    height: 150%;
+}
+
+/* Add classes for staggered animations on scroll */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Loading animation for chart container */
+.chart-container.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.chart-container.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4f46e5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 11;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Login/logout button in header */
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.login-btn:hover {
+    background-color: #4f46e5;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.dark-mode .login-btn {
+    background-color: #374151;
+    color: #a5b4fc;
+}
+
+.dark-mode .login-btn:hover {
+    background-color: #6366f1;
+    color: white;
+} 

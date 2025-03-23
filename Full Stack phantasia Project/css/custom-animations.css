@@ -1,0 +1,868 @@
+/**
+ * EdTech Platform - Custom Animations
+ * This file contains custom animations, transitions, and effects
+ * for enhanced user experience throughout the platform
+ */
+
+/* ===== ENTRANCE ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== ATTENTION ANIMATIONS ===== */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ===== BACKGROUND ANIMATIONS ===== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== SPECIAL EFFECTS ===== */
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(15);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-10deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ===== CURSOR EFFECTS ===== */
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ===== TOOLTIP AND NOTIFICATION ANIMATIONS ===== */
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ===== LOADING INDICATORS ===== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%, 100% {
+    content: "...";
+  }
+}
+
+/* ===== PROGRESS BAR ANIMATIONS ===== */
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes progressPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* ===== 3D TRANSFORMS ===== */
+
+@keyframes flipIn {
+  from {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipOut {
+  from {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes tilt {
+  0% {
+    transform: perspective(500px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(500px) rotateY(1deg);
+  }
+  75% {
+    transform: perspective(500px) rotateY(-1deg);
+  }
+  100% {
+    transform: perspective(500px) rotateY(0deg);
+  }
+}
+
+/* ===== CUSTOM UI COMPONENT ANIMATIONS ===== */
+
+/* Toast container */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  background-color: var(--primary-color, #4361ee);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: toastIn 0.3s forwards;
+}
+
+.toast.hide {
+  animation: toastOut 0.3s forwards;
+}
+
+/* Ripple effect for buttons and cards */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple 0.8s ease-out;
+}
+
+/* Top-rated badge animation */
+.top-rated-badge {
+  animation: pulse 2s infinite;
+}
+
+/* Progress bar shimmer effect */
+.shimmer-effect {
+  background: linear-gradient(
+    90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.2) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Search highlighting */
+.search-highlight {
+  background-color: rgba(67, 97, 238, 0.1);
+  border-radius: 2px;
+  padding: 0 2px;
+  animation: pulse 2s infinite;
+}
+
+/* Apply these animations selectively to components */
+.animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+.animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+.animate-zoomIn { animation: zoomIn 0.5s ease-out forwards; }
+.animate-pulse { animation: pulse 2s infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-shimmer { 
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear; 
+}
+.animate-gradientFlow {
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+/* ===== CUSTOM ANIMATIONS ===== */
+
+/* === Entrance Animations === */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* === Attention Animations === */
+@keyframes tada {
+    0% { transform: scale(1) rotate(0deg); }
+    10%, 20% { transform: scale(0.9) rotate(-3deg); }
+    30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+    40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* === Background Animations === */
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* === Special Effects === */
+@keyframes breathe {
+    0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(67, 97, 238, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-10deg) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Toast Animation */
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Loading Animation */
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Apply animation classes */
+.slideInUp { animation: slideInUp 0.5s ease forwards; }
+.slideInDown { animation: slideInDown 0.5s ease forwards; }
+.slideInLeft { animation: slideInLeft 0.5s ease forwards; }
+.slideInRight { animation: slideInRight 0.5s ease forwards; }
+.fadeIn { animation: fadeIn 0.5s ease forwards; }
+.fadeOut { animation: fadeOut 0.5s ease forwards; }
+.pulse { animation: pulse 1s infinite; }
+.bounce { animation: bounce 1s infinite; }
+.shake { animation: shake 0.5s; }
+.tada { animation: tada 1s; }
+.float { animation: float 3s ease-in-out infinite; }
+.rotate-in { animation: rotateIn 0.5s ease forwards; }
+
+/* Ripple effect for buttons */
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+/* Toast styling */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toast::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast.error {
+    background: var(--danger-color);
+}
+
+.toast.warning {
+    background: var(--warning-color);
+}
+
+.toast.error::before {
+    content: '\f00d';
+}
+
+.toast.warning::before {
+    content: '\f071';
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(to right, rgba(67, 97, 238, 0.05), transparent);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.close-modal {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-light);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Form elements for modal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--bg-white);
+    transition: all 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Checkbox styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    margin-right: 10px;
+}
+
+/* Form buttons styling */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Secondary button for cancel actions */
+.btn-secondary {
+    padding: 10px 20px;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-white);
+    color: var(--primary-color);
+    border-color: var(--primary-light);
+}
+
+/* ===== CALENDAR SELECTION FIXES ===== */
+
+/* Prevent text selection in calendar */
+.calendar-container * {
+    user-select: none !important;
+}
+
+/* Day selection pulse animation */
+@keyframes dayPulse {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Style for day header when clicked */
+.day-column.day-clicked {
+    background-color: rgba(67, 97, 238, 0.05) !important;
+}
+
+/* Style for day cell when clicked */
+.day-cell.cell-clicked {
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Disable text selection in entire calendar */
+.calendar-container, 
+.calendar-header, 
+.calendar-controls, 
+.calendar-view, 
+.week-header, 
+.week-grid, 
+.upcoming-events {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* Ensure proper click interaction for day cells */
+.day-cell {
+    position: relative;
+    height: 60px;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.day-cell:hover {
+    background-color: rgba(67, 97, 238, 0.03);
+}
+
+.day-cell:active {
+    background-color: rgba(67, 97, 238, 0.08);
+}
+
+/* Day pulse effect */
+.day-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(67, 97, 238, 0.2);
+    border-radius: 50%;
+    z-index: 5;
+    animation: dayPulse 0.5s forwards;
+    pointer-events: none;
+}
+
+/* Better focus indicators for accessibility */
+.calendar-controls button:focus,
+.day-column:focus,
+.day-cell:focus,
+.calendar-event:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+} 

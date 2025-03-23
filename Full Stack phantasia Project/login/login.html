@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Edtech</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="google-button.css">
+    <link rel="stylesheet" href="panda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+</head>
+<body class="unstop-style">
+    <!-- Main Content -->
+    <main class="login-section">
+        <div class="login-container">
+            <!-- Login Form -->
+            <div class="login-form">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../img/logo.svg" alt="Edtech Logo" class="logo-image">
+                    </a>
+                </div>
+
+                <!-- Panda character between logo and welcome text -->
+                <div class="panda-character">
+                    <div class="panda-face">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                        <div class="panda-eye-patch left"></div>
+                        <div class="panda-eye-patch right"></div>
+                        <div class="panda-eyes">
+                            <div class="eye left"></div>
+                            <div class="eye right"></div>
+                        </div>
+                        <div class="nose"></div>
+                        <div class="mouth"></div>
+                        <div class="panda-hand left"></div>
+                        <div class="panda-hand right"></div>
+                    </div>
+                </div>
+
+                <h1>Welcome Back!</h1>
+                <p class="subtitle">Please login to your account</p>
+
+                <form id="loginForm" action="../index.html">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-block btn-primary">
+                        Login
+                        <span class="loading-spinner"></span>
+                    </button>
+                </form>
+
+                <div class="social-login">
+                    <p>Or continue with</p>
+                    <div class="social-buttons">
+                        <button type="button" class="btn-social" onclick="window.location.href='../index.html'">
+                            <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google">
+                            Google
+                        </button>
+                    </div>
+                </div>
+
+                <div class="register-link">
+                    <p>Don't have an account? <a href="#" class="btn-link">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Best viewed in latest versions of Mozilla, Chrome, Opera & Safari.</p>
+            <p>&copy; 2024 Edtech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Panda character animation
+        const panda = document.querySelector('.panda-character');
+        const pandaFace = document.querySelector('.panda-face');
+        const eyes = document.querySelectorAll('.panda-eyes .eye');
+        const mouth = document.querySelector('.mouth');
+        const passwordInput = document.querySelector('input[type="password"]');
+        const togglePassword = document.getElementById('togglePassword');
+        let isBlinkingEnabled = true;
+        
+        // Functions to handle eye states
+        function closeEyes() {
+            isBlinkingEnabled = false;
+            pandaFace.classList.add('eyes-closed');
+            eyes.forEach(eye => {
+                eye.classList.add('closed');
+            });
+            // Add worried mouth expression
+            mouth.style.width = '16px';
+            mouth.style.height = '6px';
+            mouth.style.borderRadius = '0 0 10px 10px';
+            mouth.style.bottom = '22%';
+        }
+
+        function openEyes() {
+            isBlinkingEnabled = true;
+            pandaFace.classList.remove('eyes-closed');
+            eyes.forEach(eye => {
+                eye.classList.remove('closed');
+            });
+            // Reset mouth to normal
+            mouth.style.width = '20px';
+            mouth.style.height = '10px';
+            mouth.style.borderRadius = '0 0 20px 20px';
+            mouth.style.bottom = '25%';
+        }
+
+        // Random blinking
+        function blink() {
+            if (!isBlinkingEnabled) return; // Don't blink if eyes are closed
+            eyes.forEach(eye => {
+                eye.classList.add('blink');
+                setTimeout(() => eye.classList.remove('blink'), 150);
+            });
+            
+            // Random interval between 2 and 6 seconds
+            const nextBlink = Math.random() * 4000 + 2000;
+            setTimeout(blink, nextBlink);
+        }
+        
+        // Start blinking
+        setTimeout(blink, 1000);
+
+        // Shy behavior on hover
+        panda.addEventListener('mouseenter', () => {
+            if (!isBlinkingEnabled) return; // Don't change expression if eyes are closed
+            eyes.forEach(eye => {
+                eye.style.height = '10px';
+                eye.style.background = '#333';
+            });
+            mouth.style.width = '16px';
+            mouth.style.height = '8px';
+            mouth.style.borderRadius = '50%';
+            mouth.style.bottom = '22%';
+        });
+
+        panda.addEventListener('mouseleave', () => {
+            if (!isBlinkingEnabled) return; // Don't change expression if eyes are closed
+            openEyes();
+        });
+        
+        // Toggle password visibility and panda eyes
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+            
+            // Toggle panda eyes - close eyes when showing password
+            if (type === 'text') {
+                closeEyes();
+            } else {
+                openEyes();
+            }
+        });
+
+        // Also handle password input focus
+        passwordInput.addEventListener('focus', () => {
+            if (passwordInput.getAttribute('type') === 'text') {
+                closeEyes();
+            }
+        });
+
+        // Handle password input blur
+        passwordInput.addEventListener('blur', () => {
+            if (passwordInput.getAttribute('type') === 'password') {
+                openEyes();
+            }
+        });
+        
+        // Form submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            let isValid = true;
+            
+            // Clear previous errors
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            
+            // Email validation
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                isValid = false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                isValid = false;
+            }
+            
+            // Password validation
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show loading spinner
+                const button = document.querySelector('.btn-primary');
+                button.disabled = true;
+                button.querySelector('.loading-spinner').style.display = 'inline-block';
+                
+                // Simulate login (replace with actual login logic)
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>

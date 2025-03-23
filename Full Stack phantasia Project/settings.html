@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech - Settings</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onload="forceNavVisibility()">
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="img/logo.svg" alt="EdTech Logo" class="logo-img" width="200" height="200">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: #1f2937 !important;"><i class="fas fa-home" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Dashboard</span></a></li>
+                <li><a href="courses.html" style="color: #1f2937 !important;"><i class="fas fa-book" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Courses</span></a></li>
+                <li><a href="calendar.html" style="color: #1f2937 !important;"><i class="fas fa-calendar-alt" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Calendar</span></a></li>
+                <li><a href="achievements.html" style="color: #1f2937 !important;"><i class="fas fa-trophy achievement-icon" style="color: #f97316 !important;"></i> <span style="color: #1f2937 !important;">Achievements</span></a></li>
+                <li><a href="community.html" style="color: #1f2937 !important;"><i class="fas fa-users" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Community</span></a></li>
+                <li class="active"><a href="settings.html" style="color: #4361ee !important;"><i class="fas fa-cog" style="color: #4361ee !important;"></i> <span style="color: #4361ee !important;">Settings</span></a></li>
+            </ul>
+            <div class="user-info">
+                <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Prateek Pant">
+                <div>
+                    <h4>Prateek Pant</h4>
+                    <p>Premium Student</p>
+                </div>
+            </div>
+        </nav>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search settings...">
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-container" data-tooltip="Toggle Dark Mode">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button class="message-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></button>
+                    <a href="login/login.html" class="login-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+            
+            <!-- Settings Content -->
+            <section class="settings-content">
+                <h1>Settings</h1>
+                
+                <!-- Settings Navigation -->
+                <div class="settings-navigation">
+                    <button class="active" data-section="profile" onclick="showSettingsSection('profile')">
+                        <i class="fas fa-user"></i> Profile
+                    </button>
+                    <button data-section="account" onclick="showSettingsSection('account')">
+                        <i class="fas fa-user-cog"></i> Account
+                    </button>
+                    <button data-section="security" onclick="showSettingsSection('security')">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </button>
+                    <button data-section="notifications" onclick="showSettingsSection('notifications')">
+                        <i class="fas fa-bell"></i> Notifications
+                    </button>
+                    <button data-section="appearance" onclick="showSettingsSection('appearance')">
+                        <i class="fas fa-paint-brush"></i> Appearance
+                    </button>
+                    <button data-section="privacy" onclick="showSettingsSection('privacy')">
+                        <i class="fas fa-lock"></i> Privacy
+                    </button>
+                </div>
+                
+                <!-- Settings Sections -->
+                <div id="profileSection" class="settings-section active">
+                    <!-- Profile Information Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Profile Information</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="avatar-upload">
+                                <div class="avatar-preview">
+                                    <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Profile Picture" id="currentAvatar">
+                                </div>
+                                <div class="avatar-controls">
+                                    <label class="avatar-upload-btn">
+                                        <i class="fas fa-upload"></i> Upload new picture
+                                        <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                                    </label>
+                                    <button class="avatar-remove-btn">
+                                        <i class="fas fa-trash-alt"></i> Remove picture
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" value="Prateek Pant">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userName">Username</label>
+                                    <input type="text" id="userName" value="prateekpant">
+                                    <p class="form-description">This will be displayed on your profile and in your URL: edtech.com/prateekpant</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="prateek.pant@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio">Passionate computer science student focusing on AI and machine learning. I enjoy solving complex problems and building innovative solutions. Currently learning React and Node.js.</textarea>
+                                    <p class="form-description">Brief description about yourself. This will be displayed on your public profile.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" value="New Delhi, India">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="text" id="website" value="https://prateekpant.dev">
+                                </div>
+                                <div class="settings-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Profiles Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Social Profiles</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="github"><i class="fab fa-github"></i> GitHub</label>
+                                    <input type="text" id="github" value="github.com/prateekpant">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</label>
+                                    <input type="text" id="linkedin" value="linkedin.com/in/prateekpant">
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter"><i class="fab fa-twitter"></i> Twitter</label>
+                                    <input type="text" id="twitter" value="twitter.com/prateekpant">
+                                </div>
+                                <div class="settings-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="accountSection" class="settings-section">
+                    <!-- Account Preferences Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Account Preferences</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="language">Language</label>
+                                    <select id="language">
+                                        <option value="en" selected>English (US)</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
+                                        <option value="ja">Japanese</option>
+                                        <option value="zh">Chinese (Simplified)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone">
+                                        <option value="Asia/Kolkata" selected>(GMT+5:30) India Standard Time</option>
+                                        <option value="America/New_York">(GMT-4:00) Eastern Time</option>
+                                        <option value="America/Los_Angeles">(GMT-7:00) Pacific Time</option>
+                                        <option value="Europe/London">(GMT+0:00) Greenwich Mean Time</option>
+                                        <option value="Europe/Paris">(GMT+1:00) Central European Time</option>
+                                        <option value="Asia/Tokyo">(GMT+9:00) Japan Standard Time</option>
+                                    </select>
+                                </div>
+                                <div class="settings-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscription Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Subscription</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div style="background-color: rgba(16, 185, 129, 0.1); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="background-color: var(--success-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="margin: 0; color: var(--success-color); font-size: 1.1rem; font-weight: 600;">Premium Student Plan</h3>
+                                        <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Renewal on May 23, 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Your plan includes:</h3>
+                                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li style="margin-bottom: 0.5rem;">Unlimited access to all courses</li>
+                                    <li style="margin-bottom: 0.5rem;">Priority support from instructors</li>
+                                    <li style="margin-bottom: 0.5rem;">Downloadable course materials</li>
+                                    <li style="margin-bottom: 0.5rem;">Certificate of completion</li>
+                                    <li>Access to exclusive community forums</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button type="button" class="btn-cancel">Cancel Subscription</button>
+                                <button type="button" class="btn-save"><i class="fas fa-crown"></i> Upgrade Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Billing History Card -->
+                    <div class="settings-card" style="animation-delay: 0.3s">
+                        <div class="settings-card-header">
+                            <h2>Billing History</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--border-color); text-align: left;">
+                                            <th style="padding: 0.75rem 1rem;">Date</th>
+                                            <th style="padding: 0.75rem 1rem;">Description</th>
+                                            <th style="padding: 0.75rem 1rem;">Amount</th>
+                                            <th style="padding: 0.75rem 1rem;">Status</th>
+                                            <th style="padding: 0.75rem 1rem;">Receipt</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid var(--border-color);">
+                                            <td style="padding: 0.75rem 1rem;">May 23, 2024</td>
+                                            <td style="padding: 0.75rem 1rem;">Premium Student Plan (Annual)</td>
+                                            <td style="padding: 0.75rem 1rem;">₹8,999</td>
+                                            <td style="padding: 0.75rem 1rem;"><span style="background-color: rgba(16, 185, 129, 0.1); color: var(--success-color); padding: 0.25rem 0.5rem; border-radius: 1rem; font-size: 0.75rem;">Paid</span></td>
+                                            <td style="padding: 0.75rem 1rem;"><a href="#" style="color: var(--primary-color); text-decoration: none;">Download</a></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid var(--border-color);">
+                                            <td style="padding: 0.75rem 1rem;">Jan 15, 2024</td>
+                                            <td style="padding: 0.75rem 1rem;">Advanced Python Course</td>
+                                            <td style="padding: 0.75rem 1rem;">₹1,499</td>
+                                            <td style="padding: 0.75rem 1rem;"><span style="background-color: rgba(16, 185, 129, 0.1); color: var(--success-color); padding: 0.25rem 0.5rem; border-radius: 1rem; font-size: 0.75rem;">Paid</span></td>
+                                            <td style="padding: 0.75rem 1rem;"><a href="#" style="color: var(--primary-color); text-decoration: none;">Download</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.75rem 1rem;">Nov 5, 2023</td>
+                                            <td style="padding: 0.75rem 1rem;">Introduction to React</td>
+                                            <td style="padding: 0.75rem 1rem;">₹999</td>
+                                            <td style="padding: 0.75rem 1rem;"><span style="background-color: rgba(16, 185, 129, 0.1); color: var(--success-color); padding: 0.25rem 0.5rem; border-radius: 1rem; font-size: 0.75rem;">Paid</span></td>
+                                            <td style="padding: 0.75rem 1rem;"><a href="#" style="color: var(--primary-color); text-decoration: none;">Download</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="securitySection" class="settings-section">
+                    <!-- Change Password Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Change Password</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" onkeyup="checkPasswordStrength()">
+                                    <div class="password-strength">
+                                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                                    </div>
+                                    <p class="password-strength-text" id="passwordStrengthText">Please enter a password</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword">
+                                </div>
+                                <div class="settings-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="button" class="btn-save"><i class="fas fa-lock"></i> Update Password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Two-Factor Authentication Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Two-Factor Authentication</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Enable Two-Factor Authentication</span>
+                                    <span class="switch-description">Secure your account with an additional layer of protection using an authenticator app</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="twoFactorToggle">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div id="twoFactorSetup" style="display: none; margin-top: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: 0.5rem;">
+                                <h3 style="margin-top: 0; font-size: 1rem;">Setup Two-Factor Authentication</h3>
+                                <ol style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                                    <li style="margin-bottom: 0.5rem;">Download an authenticator app like Google Authenticator or Authy</li>
+                                    <li style="margin-bottom: 0.5rem;">Scan the QR code below with your authenticator app</li>
+                                    <li style="margin-bottom: 0.5rem;">Enter the 6-digit code from your app below to verify</li>
+                                </ol>
+                                
+                                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem;">
+                                    <div style="width: 150px; height: 150px; background-color: var(--background-gray); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                        <i class="fas fa-qrcode" style="font-size: 100px; color: var(--text-muted);"></i>
+                                    </div>
+                                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-light);">Or enter this code manually: <span style="font-family: monospace; background-color: var(--background-gray); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">KL7A F3T8 9P2D</span></p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="verificationCode">Enter 6-digit Code</label>
+                                    <input type="text" id="verificationCode" maxlength="6" placeholder="123456">
+                                </div>
+                                
+                                <div class="settings-actions">
+                                    <button type="button" class="btn-cancel">Cancel</button>
+                                    <button type="button" class="btn-save">Verify & Enable</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Login Sessions Card -->
+                    <div class="settings-card" style="animation-delay: 0.3s">
+                        <div class="settings-card-header">
+                            <h2>Login Sessions</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-dark);">Current Session</h3>
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.5rem; background-color: rgba(79, 70, 229, 0.05); border: 1px solid rgba(79, 70, 229, 0.1);">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-laptop"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <h4 style="margin: 0; font-size: 0.95rem;">Windows 10 - Chrome</h4>
+                                            <span style="font-size: 0.8rem; color: var(--success-color);">Current</span>
+                                        </div>
+                                        <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-light);">New Delhi, India • IP: 103.78.xxx.xxx • Last accessed: Just now</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-dark);">Other Sessions</h3>
+                                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.5rem; background-color: var(--background-gray);">
+                                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--text-muted); display: flex; align-items: center; justify-content: center; color: white;">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <h4 style="margin: 0; font-size: 0.95rem;">iPhone 15 - Safari</h4>
+                                                <button style="background: none; border: none; color: var(--danger-color); cursor: pointer; font-size: 0.9rem; font-weight: 500;">Logout</button>
+                                            </div>
+                                            <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-light);">New Delhi, India • IP: 103.78.xxx.xxx • Last accessed: 2 hours ago</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.5rem; background-color: var(--background-gray);">
+                                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--text-muted); display: flex; align-items: center; justify-content: center; color: white;">
+                                            <i class="fas fa-tablet-alt"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <h4 style="margin: 0; font-size: 0.95rem;">iPad - Chrome</h4>
+                                                <button style="background: none; border: none; color: var(--danger-color); cursor: pointer; font-size: 0.9rem; font-weight: 500;">Logout</button>
+                                            </div>
+                                            <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-light);">Mumbai, India • IP: 205.12.xxx.xxx • Last accessed: Yesterday</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions" style="margin-top: 1.5rem;">
+                                <button type="button" class="btn-danger"><i class="fas fa-sign-out-alt"></i> Logout of All Sessions</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="notificationsSection" class="settings-section">
+                    <!-- Email Notifications Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Email Notifications</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="notifications-grid">
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">Course Updates</span>
+                                        <span class="switch-description">Get notified about new content in your enrolled courses</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">Assignment Deadlines</span>
+                                        <span class="switch-description">Receive reminders about upcoming assignment deadlines</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">Forum Activity</span>
+                                        <span class="switch-description">Get notified when someone replies to your posts</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">Achievement Unlocked</span>
+                                        <span class="switch-description">Receive notifications when you earn new achievements</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">New Courses</span>
+                                        <span class="switch-description">Get notified when new courses matching your interests are added</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-container">
+                                    <div class="switch-info">
+                                        <span class="switch-title">Promotional Emails</span>
+                                        <span class="switch-description">Receive emails about discounts, offers, and events</span>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button type="button" class="btn-cancel">Reset to Default</button>
+                                <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Push Notifications Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Push Notifications</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Enable Push Notifications</span>
+                                    <span class="switch-description">Receive notifications directly on your device even when you're not using the app</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked id="pushNotificationsToggle">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div id="pushNotificationsSettings" style="margin-top: 1.5rem;">
+                                <div class="notifications-grid">
+                                    <div class="switch-container">
+                                        <div class="switch-info">
+                                            <span class="switch-title">Messages</span>
+                                            <span class="switch-description">Get notified when you receive a new message</span>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="switch-container">
+                                        <div class="switch-info">
+                                            <span class="switch-title">Reminders</span>
+                                            <span class="switch-description">Get notified about upcoming events and deadlines</span>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="switch-container">
+                                        <div class="switch-info">
+                                            <span class="switch-title">Course Progress</span>
+                                            <span class="switch-description">Get weekly summaries of your course progress</span>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button type="button" class="btn-cancel">Reset to Default</button>
+                                <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="appearanceSection" class="settings-section">
+                    <!-- Theme Settings Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Theme Settings</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div style="margin-bottom: 2rem;">
+                                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">Color Theme</h3>
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <label style="display: inline-flex; flex-direction: column; align-items: center; cursor: pointer;">
+                                        <input type="radio" name="colorTheme" value="light" checked style="margin-bottom: 0.5rem;">
+                                        <div style="width: 80px; height: 60px; border-radius: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); margin-bottom: 0.5rem; position: relative; overflow: hidden;">
+                                            <div style="position: absolute; top: 0; left: 0; width: 30%; height: 100%; background-color: #f1f5f9;"></div>
+                                            <div style="position: absolute; top: 10px; left: 35%; width: 55%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 25px; left: 35%; width: 40%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 40px; left: 35%; width: 50%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Light</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; flex-direction: column; align-items: center; cursor: pointer;">
+                                        <input type="radio" name="colorTheme" value="dark" style="margin-bottom: 0.5rem;">
+                                        <div style="width: 80px; height: 60px; border-radius: 0.5rem; background-color: #0f172a; border: 1px solid #334155; box-shadow: var(--shadow-sm); margin-bottom: 0.5rem; position: relative; overflow: hidden;">
+                                            <div style="position: absolute; top: 0; left: 0; width: 30%; height: 100%; background-color: #1e293b;"></div>
+                                            <div style="position: absolute; top: 10px; left: 35%; width: 55%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 25px; left: 35%; width: 40%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 40px; left: 35%; width: 50%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Dark</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; flex-direction: column; align-items: center; cursor: pointer;">
+                                        <input type="radio" name="colorTheme" value="auto" style="margin-bottom: 0.5rem;">
+                                        <div style="width: 80px; height: 60px; border-radius: 0.5rem; background: linear-gradient(to right, #ffffff 50%, #0f172a 50%); border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); margin-bottom: 0.5rem; position: relative; overflow: hidden;">
+                                            <div style="position: absolute; top: 0; left: 0; width: 15%; height: 100%; background-color: #f1f5f9;"></div>
+                                            <div style="position: absolute; top: 0; left: 50%; width: 15%; height: 100%; background-color: #1e293b;"></div>
+                                            <div style="position: absolute; top: 10px; left: 20%; width: 25%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 25px; left: 20%; width: 20%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 40px; left: 20%; width: 25%; height: 10px; background-color: #e2e8f0; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 10px; left: 70%; width: 25%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 25px; left: 70%; width: 20%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 40px; left: 70%; width: 25%; height: 10px; background-color: #334155; border-radius: 10px;"></div>
+                                        </div>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">System Default</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 2rem;">
+                                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">Accent Color</h3>
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="accentColor" value="indigo" checked>
+                                        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #4f46e5; border: 2px solid #fff; box-shadow: 0 0 0 2px #4f46e5;"></span>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Indigo</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="accentColor" value="blue">
+                                        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #3b82f6; border: 2px solid #fff; box-shadow: 0 0 0 2px #3b82f6;"></span>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Blue</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="accentColor" value="purple">
+                                        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #8b5cf6; border: 2px solid #fff; box-shadow: 0 0 0 2px #8b5cf6;"></span>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Purple</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="accentColor" value="green">
+                                        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #10b981; border: 2px solid #fff; box-shadow: 0 0 0 2px #10b981;"></span>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Green</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="accentColor" value="orange">
+                                        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #f97316; border: 2px solid #fff; box-shadow: 0 0 0 2px #f97316;"></span>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Orange</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">UI Density</h3>
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="uiDensity" value="comfortable" checked>
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Comfortable</span>
+                                    </label>
+                                    
+                                    <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="uiDensity" value="compact">
+                                        <span style="font-size: 0.85rem; color: var(--text-dark);">Compact</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions" style="margin-top: 2rem;">
+                                <button type="button" class="btn-cancel">Reset to Default</button>
+                                <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accessibility Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Accessibility</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Reduce Motion</span>
+                                    <span class="switch-description">Minimize or eliminate interface animations</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Increase Contrast</span>
+                                    <span class="switch-description">Use higher contrast colors for better visibility</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 1.5rem;">
+                                <label for="fontSize">Font Size</label>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <input type="range" id="fontSize" min="12" max="20" value="16" style="flex: 1;">
+                                    <span style="font-size: 0.9rem; color: var(--text-dark);">16px</span>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button type="button" class="btn-cancel">Reset to Default</button>
+                                <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="privacySection" class="settings-section">
+                    <!-- Privacy Settings Card -->
+                    <div class="settings-card" style="animation-delay: 0.1s">
+                        <div class="settings-card-header">
+                            <h2>Privacy Settings</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Public Profile</span>
+                                    <span class="switch-description">Allow others to view your profile and learning activity</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Show Learning Progress</span>
+                                    <span class="switch-description">Display your course progress and completion status publicly</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Show Achievements</span>
+                                    <span class="switch-description">Display your badges and achievements on your public profile</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Activity Status</span>
+                                    <span class="switch-description">Show when you are online or your last active time</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button type="button" class="btn-cancel">Reset to Default</button>
+                                <button type="button" class="btn-save"><i class="fas fa-save"></i> Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data & Privacy Card -->
+                    <div class="settings-card" style="animation-delay: 0.2s">
+                        <div class="settings-card-header">
+                            <h2>Data & Privacy</h2>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Personalized Learning</span>
+                                    <span class="switch-description">Allow us to analyze your learning patterns to provide customized recommendations</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Usage Analytics</span>
+                                    <span class="switch-description">Contribute anonymous usage data to help improve our platform</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="switch-container">
+                                <div class="switch-info">
+                                    <span class="switch-title">Cookies</span>
+                                    <span class="switch-description">Allow non-essential cookies for enhanced functionality</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div style="margin-top: 2rem;">
+                                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">Your Data</h3>
+                                <p style="margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--text-light);">You can download a copy of your data or request data deletion at any time.</p>
+                                
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <button type="button" style="padding: 0.75rem 1.25rem; background-color: var(--background-gray); border: 1px solid var(--border-color); color: var(--text-dark); border-radius: 0.5rem; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-download"></i> Download Your Data
+                                    </button>
+                                    <button type="button" style="padding: 0.75rem 1.25rem; background-color: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--danger-color); border-radius: 0.5rem; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-trash-alt"></i> Request Data Deletion
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Danger Zone Card -->
+                    <div class="danger-zone" style="animation-delay: 0.3s;">
+                        <h3>Danger Zone</h3>
+                        
+                        <div class="danger-action">
+                            <div class="danger-info">
+                                <h4>Deactivate Account</h4>
+                                <p>Temporarily disable your account. You can reactivate it at any time by logging in.</p>
+                            </div>
+                            <button type="button" class="btn-danger">Deactivate</button>
+                        </div>
+                        
+                        <div class="danger-action">
+                            <div class="danger-info">
+                                <h4>Delete Account</h4>
+                                <p>Permanently delete your account and all associated data. This action cannot be undone.</p>
+                            </div>
+                            <button type="button" class="btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script src="js/trophy-fix.js"></script>
+    <script>
+        // Function to show a specific settings section
+        function showSettingsSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.settings-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId + 'Section').classList.add('active');
+            
+            // Update active navigation button
+            document.querySelectorAll('.settings-navigation button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.settings-navigation button[data-section="${sectionId}"]`).classList.add('active');
+            
+            // Reset animations for the visible section
+            const cards = document.querySelectorAll(`#${sectionId}Section .settings-card`);
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${0.1 * (index + 1)}s`;
+                card.style.animation = 'none';
+                card.offsetHeight; // Trigger reflow
+                card.style.animation = '';
+            });
+        }
+        
+        // Password strength checker
+        function checkPasswordStrength() {
+            const password = document.getElementById('newPassword').value;
+            const strengthBar = document.getElementById('passwordStrengthBar');
+            const strengthText = document.getElementById('passwordStrengthText');
+            
+            if (password.length === 0) {
+                strengthBar.className = 'password-strength-bar';
+                strengthText.textContent = 'Please enter a password';
+                return;
+            }
+            
+            // Simple strength check based on length and character types
+            let strength = 0;
+            if (password.length >= 8) strength += 1;
+            if (/[A-Z]/.test(password)) strength += 1;
+            if (/[0-9]/.test(password)) strength += 1;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+            
+            if (strength < 2) {
+                strengthBar.className = 'password-strength-bar weak';
+                strengthText.textContent = 'Weak: Try a longer password with special characters';
+            } else if (strength < 4) {
+                strengthBar.className = 'password-strength-bar medium';
+                strengthText.textContent = 'Medium: Add numbers and special characters';
+            } else {
+                strengthBar.className = 'password-strength-bar strong';
+                strengthText.textContent = 'Strong: Great password!';
+            }
+        }
+        
+        // Toggle two-factor authentication setup
+        document.addEventListener('DOMContentLoaded', function() {
+            // 2FA toggle
+            const twoFactorToggle = document.getElementById('twoFactorToggle');
+            const twoFactorSetup = document.getElementById('twoFactorSetup');
+            
+            if (twoFactorToggle && twoFactorSetup) {
+                twoFactorToggle.addEventListener('change', function() {
+                    twoFactorSetup.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            
+            // Push notifications toggle
+            const pushNotificationsToggle = document.getElementById('pushNotificationsToggle');
+            const pushNotificationsSettings = document.getElementById('pushNotificationsSettings');
+            
+            if (pushNotificationsToggle && pushNotificationsSettings) {
+                pushNotificationsToggle.addEventListener('change', function() {
+                    pushNotificationsSettings.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            
+            // Preview avatar upload
+            const avatarUpload = document.getElementById('avatarUpload');
+            const currentAvatar = document.getElementById('currentAvatar');
+            
+            if (avatarUpload && currentAvatar) {
+                avatarUpload.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            currentAvatar.src = e.target.result;
+                        };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            }
+            
+            // Theme settings
+            const themeOptions = document.getElementsByName('colorTheme');
+            const accentOptions = document.getElementsByName('accentColor');
+            
+            if (themeOptions.length && accentOptions.length) {
+                themeOptions.forEach(option => {
+                    option.addEventListener('change', function() {
+                        // In a real app, this would update the theme
+                        console.log('Theme changed to:', this.value);
+                    });
+                });
+                
+                accentOptions.forEach(option => {
+                    option.addEventListener('change', function() {
+                        // In a real app, this would update the accent color
+                        console.log('Accent color changed to:', this.value);
+                    });
+                });
+            }
+            
+            // Add animation classes to cards with delay
+            document.querySelectorAll('.settings-section.active .settings-card').forEach((card, index) => {
+                card.style.animationDelay = `${0.1 * (index + 1)}s`;
+            });
+        });
+    </script>
+</body>
+</html> 

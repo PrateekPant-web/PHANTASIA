@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech - Community</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onload="forceNavVisibility()">
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="img/logo.svg" alt="EdTech Logo" class="logo-img" width="200" height="200">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: #1f2937 !important;"><i class="fas fa-home" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Dashboard</span></a></li>
+                <li><a href="courses.html" style="color: #1f2937 !important;"><i class="fas fa-book" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Courses</span></a></li>
+                <li><a href="calendar.html" style="color: #1f2937 !important;"><i class="fas fa-calendar-alt" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Calendar</span></a></li>
+                <li><a href="achievements.html" style="color: #1f2937 !important;"><i class="fas fa-trophy achievement-icon" style="color: #f97316 !important;"></i> <span style="color: #1f2937 !important;">Achievements</span></a></li>
+                <li class="active"><a href="community.html" style="color: #4361ee !important;"><i class="fas fa-users" style="color: #4361ee !important;"></i> <span style="color: #4361ee !important;">Community</span></a></li>
+                <li><a href="settings.html" style="color: #1f2937 !important;"><i class="fas fa-cog" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Settings</span></a></li>
+            </ul>
+            <div class="user-info">
+                <img src="img/prateek/Screenshot 2025-03-23 155541.png" alt="Prateek Pant">
+                <div>
+                    <h4>Prateek Pant</h4>
+                    <p>Premium Student</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search the community...">
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-container" data-tooltip="Toggle Dark Mode">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button class="message-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></button>
+                    <a href="login/login.html" class="login-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+
+            <div class="community-container">
+                <!-- Community Header -->
+                <div class="community-header">
+                    <h1>EdTech Community</h1>
+                    <p>Connect with fellow learners, join study groups, and participate in discussions to enhance your learning experience.</p>
+                    <div class="community-actions">
+                        <button class="btn-primary"><i class="fas fa-plus"></i> Create Discussion</button>
+                        <button class="btn-outline"><i class="fas fa-users"></i> Find Study Group</button>
+                    </div>
+                </div>
+                
+                <!-- Community Dashboard Grid -->
+                <div class="community-dashboard">
+                    <!-- Recent Discussions Panel -->
+                    <div class="dashboard-card discussions-panel">
+                        <div class="card-header">
+                            <h2>Recent Discussions</h2>
+                            <div class="filter-dropdown">
+                                <button>All Topics <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="discussions-list">
+                            <div class="discussion-item hot">
+                                <div class="discussion-votes">
+                                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                    <span class="vote-count">45</span>
+                                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="discussion-content">
+                                    <div class="discussion-header">
+                                        <span class="tag javascript">JavaScript</span>
+                                        <h3 class="discussion-title">Understanding async/await in modern JavaScript</h3>
+                                    </div>
+                                    <p class="discussion-preview">I'm struggling to understand how async/await works in JavaScript. Can someone explain with simple examples?</p>
+                                    <div class="discussion-meta">
+                                        <div class="author">
+                                            <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Prateek Pant">
+                                            <span>Prateek Pant</span>
+                                        </div>
+                                        <div class="engagement">
+                                            <span><i class="fas fa-comment"></i> 23 replies</span>
+                                            <span><i class="fas fa-eye"></i> 346 views</span>
+                                            <span class="timestamp">2 hours ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="discussion-item">
+                                <div class="discussion-votes">
+                                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                    <span class="vote-count">32</span>
+                                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="discussion-content">
+                                    <div class="discussion-header">
+                                        <span class="tag react">React</span>
+                                        <h3 class="discussion-title">Best practices for state management in large React apps</h3>
+                                    </div>
+                                    <p class="discussion-preview">As my React application grows larger, state management is becoming complex. What are the current best practices?</p>
+                                    <div class="discussion-meta">
+                                        <div class="author">
+                                            <img src="img/community/code-with harry.png" alt="Code With Harry">
+                                            <span>Code With Harry</span>
+                                        </div>
+                                        <div class="engagement">
+                                            <span><i class="fas fa-comment"></i> 18 replies</span>
+                                            <span><i class="fas fa-eye"></i> 215 views</span>
+                                            <span class="timestamp">6 hours ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="discussion-item">
+                                <div class="discussion-votes">
+                                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                    <span class="vote-count">28</span>
+                                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="discussion-content">
+                                    <div class="discussion-header">
+                                        <span class="tag html-css">HTML/CSS</span>
+                                        <h3 class="discussion-title">Responsive design strategies for modern web development</h3>
+                                    </div>
+                                    <p class="discussion-preview">What are your go-to strategies for creating responsive designs that work well across all devices?</p>
+                                    <div class="discussion-meta">
+                                        <div class="author">
+                                            <img src="img/community/Physics wallah.png" alt="Physics Wallah">
+                                            <span>Physics Wallah</span>
+                                        </div>
+                                        <div class="engagement">
+                                            <span><i class="fas fa-comment"></i> 14 replies</span>
+                                            <span><i class="fas fa-eye"></i> 187 views</span>
+                                            <span class="timestamp">1 day ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="discussion-item">
+                                <div class="discussion-votes">
+                                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                    <span class="vote-count">19</span>
+                                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="discussion-content">
+                                    <div class="discussion-header">
+                                        <span class="tag backend">Node.js</span>
+                                        <h3 class="discussion-title">Building RESTful APIs with Express and MongoDB</h3>
+                                    </div>
+                                    <p class="discussion-preview">Looking for resources and best practices for creating RESTful APIs using Express.js and MongoDB.</p>
+                                    <div class="discussion-meta">
+                                        <div class="author">
+                                            <img src="img/prateek/Screenshot 2025-03-23 155541.png" alt="Prateek Pant">
+                                            <span>Prateek Pant</span>
+                                        </div>
+                                        <div class="engagement">
+                                            <span><i class="fas fa-comment"></i> 9 replies</span>
+                                            <span><i class="fas fa-eye"></i> 142 views</span>
+                                            <span class="timestamp">2 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-link">View all discussions <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Study Groups -->
+                    <div class="dashboard-card study-groups">
+                        <div class="card-header">
+                            <h2>Study Groups</h2>
+                            <button class="btn-sm">Join a Group</button>
+                        </div>
+                        <div class="study-groups-list">
+                            <div class="study-group-item">
+                                <div class="group-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="group-info">
+                                    <h3>Web Development Accelerator</h3>
+                                    <p>Weekly meetings to discuss advanced web development topics and collaborate on projects.</p>
+                                    <div class="group-meta">
+                                        <span><i class="fas fa-users"></i> 24 members</span>
+                                        <span><i class="fas fa-calendar-check"></i> Meets every Monday</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary btn-sm">Join</button>
+                            </div>
+                            <div class="study-group-item">
+                                <div class="group-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="group-info">
+                                    <h3>Mobile App Development</h3>
+                                    <p>Learn mobile development for iOS and Android platforms with hands-on projects.</p>
+                                    <div class="group-meta">
+                                        <span><i class="fas fa-users"></i> 18 members</span>
+                                        <span><i class="fas fa-calendar-check"></i> Meets every Wednesday</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary btn-sm">Join</button>
+                            </div>
+                            <div class="study-group-item active">
+                                <div class="group-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="group-info">
+                                    <h3>Database Fundamentals</h3>
+                                    <p>Master SQL and NoSQL databases with practical exercises and real-world examples.</p>
+                                    <div class="group-meta">
+                                        <span><i class="fas fa-users"></i> 15 members</span>
+                                        <span><i class="fas fa-calendar-check"></i> Meets every Friday</span>
+                                    </div>
+                                </div>
+                                <button class="btn-outline btn-sm">Joined</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Users -->
+                    <div class="dashboard-card active-users">
+                        <div class="card-header">
+                            <h2>Active Community Members</h2>
+                        </div>
+                        <div class="active-users-grid">
+                            <div class="user-card" id="physics-wallah-card" onclick="playPhysicsWallahAudio()">
+                                <div class="user-card-header">
+                                    <img src="img/community/Physics wallah.png" alt="Physics Wallah">
+                                    <span class="online-status"></span>
+                                </div>
+                                <div class="user-card-body">
+                                    <h3>Physics Wallah</h3>
+                                    <p>Education Expert</p>
+                                </div>
+                                <div class="user-card-footer">
+                                    <button class="btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            <div class="user-card">
+                                <div class="user-card-header">
+                                    <img src="img/community/code-with harry.png" alt="Code With Harry">
+                                    <span class="online-status"></span>
+                                </div>
+                                <div class="user-card-body">
+                                    <h3>Code With Harry</h3>
+                                    <p>Coding Instructor</p>
+                                </div>
+                                <div class="user-card-footer">
+                                    <button class="btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            <div class="user-card">
+                                <div class="user-card-header">
+                                    <img src="img/community/Aman Dhatterwal.png" alt="Aman Dhatterwal">
+                                </div>
+                                <div class="user-card-body">
+                                    <h3>Aman Dhatterwal</h3>
+                                    <p>Career Counselor</p>
+                                </div>
+                                <div class="user-card-footer">
+                                    <button class="btn-sm btn-connected">Connected</button>
+                                </div>
+                            </div>
+                            <div class="user-card">
+                                <div class="user-card-header">
+                                    <img src="img/community/gate-smashers.png" alt="Gate Smashers">
+                                    <span class="online-status"></span>
+                                </div>
+                                <div class="user-card-body">
+                                    <h3>Gate Smashers</h3>
+                                    <p>GATE Preparation Expert</p>
+                                </div>
+                                <div class="user-card-footer">
+                                    <button class="btn-sm">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="dashboard-card upcoming-events">
+                        <div class="card-header">
+                            <h2>Upcoming Community Events</h2>
+                        </div>
+                        <div class="events-list">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">15</div>
+                                    <div class="date-month">May</div>
+                                </div>
+                                <div class="event-details">
+                                    <h3>JavaScript Framework Showdown</h3>
+                                    <p>A virtual panel discussion comparing React, Vue, and Angular for modern web development.</p>
+                                    <div class="event-meta">
+                                        <span><i class="fas fa-clock"></i> 7:00 PM - 9:00 PM</span>
+                                        <span><i class="fas fa-video"></i> Virtual Event</span>
+                                        <span><i class="fas fa-user-plus"></i> 78 attendees</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">22</div>
+                                    <div class="date-month">May</div>
+                                </div>
+                                <div class="event-details">
+                                    <h3>Web Accessibility Workshop</h3>
+                                    <p>Learn how to make your web applications accessible to all users with practical tips and examples.</p>
+                                    <div class="event-meta">
+                                        <span><i class="fas fa-clock"></i> 6:30 PM - 8:30 PM</span>
+                                        <span><i class="fas fa-video"></i> Virtual Event</span>
+                                        <span><i class="fas fa-user-plus"></i> 45 attendees</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">29</div>
+                                    <div class="date-month">May</div>
+                                </div>
+                                <div class="event-details">
+                                    <h3>Tech Career Fair</h3>
+                                    <p>Connect with top tech companies hiring for developer and designer positions.</p>
+                                    <div class="event-meta">
+                                        <span><i class="fas fa-clock"></i> 10:00 AM - 4:00 PM</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Tech Hub Center</span>
+                                        <span><i class="fas fa-user-plus"></i> 120 attendees</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ask a Question Card - Redesigned -->
+                    <div class="dashboard-card ask-question">
+                        <div class="card-header">
+                            <h2><i class="fas fa-question-circle"></i> Ask the Community</h2>
+                            <div class="question-stats">
+                                <span><i class="fas fa-bolt"></i> 15 min avg. response time</span>
+                                <span><i class="fas fa-users"></i> 2.5k online members</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ask-community-tabs">
+                            <button class="tab-btn active" data-tab="ask-question">
+                                <i class="fas fa-question"></i> Ask Question
+                            </button>
+                            <button class="tab-btn" data-tab="search-questions">
+                                <i class="fas fa-search"></i> Search Existing Questions
+                            </button>
+                            <button class="tab-btn" data-tab="ai-assist">
+                                <i class="fas fa-robot"></i> AI Quick Answer
+                            </button>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <!-- Ask Question Tab -->
+                            <div class="tab-panel active" id="ask-question-panel">
+                                <div class="question-form">
+                                    <div class="form-group">
+                                        <label for="question-title">Question Title</label>
+                                        <input type="text" id="question-title" placeholder="E.g., How do I implement authentication in Express.js?">
+                                        <div class="similar-questions">
+                                            <h4>Similar questions found:</h4>
+                                            <ul>
+                                                <li><a href="#">How to use JWT for authentication in Express?</a></li>
+                                                <li><a href="#">Setting up Passport.js with Express for auth</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="question-category">Category</label>
+                                        <select id="question-category">
+                                            <option value="">Select a category</option>
+                                            <option value="html-css">HTML/CSS</option>
+                                            <option value="javascript">JavaScript</option>
+                                            <option value="react">React</option>
+                                            <option value="node">Node.js</option>
+                                            <option value="database">Databases</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="question-details">Question Details</label>
+                                        <div class="rich-editor-container">
+                                            <div class="editor-toolbar">
+                                                <button type="button" class="editor-btn" title="Bold"><i class="fas fa-bold"></i></button>
+                                                <button type="button" class="editor-btn" title="Italic"><i class="fas fa-italic"></i></button>
+                                                <button type="button" class="editor-btn" title="Code"><i class="fas fa-code"></i></button>
+                                                <button type="button" class="editor-btn" title="Link"><i class="fas fa-link"></i></button>
+                                                <button type="button" class="editor-btn" title="Image"><i class="fas fa-image"></i></button>
+                                                <button type="button" class="editor-btn" title="Code Block"><i class="fas fa-file-code"></i></button>
+                                            </div>
+                                            <textarea id="question-details" rows="6" placeholder="Provide more details about your question. Include code snippets, error messages, and what you've tried so far..."></textarea>
+                                        </div>
+                                        <div class="form-tip">
+                                            <i class="fas fa-lightbulb"></i> Tip: Adding code samples and being specific increases your chances of getting helpful answers.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Tags <span class="optional-label">(helps others find your question)</span></label>
+                                        <div class="tags-input">
+                                            <div class="tag javascript">javascript<span class="remove-tag">×</span></div>
+                                            <div class="tag backend">express<span class="remove-tag">×</span></div>
+                                            <input type="text" placeholder="Add a tag... (e.g., react, database)">
+                                        </div>
+                                        <div class="popular-tags">
+                                            <span>Popular:</span>
+                                            <button class="tag-suggestion">javascript</button>
+                                            <button class="tag-suggestion">react</button>
+                                            <button class="tag-suggestion">node.js</button>
+                                            <button class="tag-suggestion">css</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="question-attachment">Attachments <span class="optional-label">(optional)</span></label>
+                                        <div class="file-upload-container">
+                                            <input type="file" id="question-attachment" multiple style="display: none;">
+                                            <button type="button" class="file-upload-btn" onclick="document.getElementById('question-attachment').click()">
+                                                <i class="fas fa-paperclip"></i> Attach Files
+                                            </button>
+                                            <span class="file-info">Max 5 files (PNG, JPG, PDF - 5MB each)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-options">
+                                        <div class="form-option">
+                                            <input type="checkbox" id="notify-answers">
+                                            <label for="notify-answers">Notify me when someone answers</label>
+                                        </div>
+                                        <div class="form-option">
+                                            <input type="checkbox" id="anonymous-post">
+                                            <label for="anonymous-post">Post anonymously</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-outline preview-question">
+                                            <i class="fas fa-eye"></i> Preview
+                                        </button>
+                                        <button type="button" class="btn-primary submit-question">
+                                            <i class="fas fa-paper-plane"></i> Post Your Question
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Search Existing Questions Tab -->
+                            <div class="tab-panel" id="search-questions-panel">
+                                <div class="search-questions-container">
+                                    <div class="search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Search for existing questions...">
+                                        <button class="btn-primary">Search</button>
+                                    </div>
+                                    
+                                    <div class="search-filters">
+                                        <select class="filter-select">
+                                            <option value="relevance">Sort by: Relevance</option>
+                                            <option value="newest">Sort by: Newest</option>
+                                            <option value="votes">Sort by: Most Votes</option>
+                                        </select>
+                                        <select class="filter-select">
+                                            <option value="all">All Categories</option>
+                                            <option value="javascript">JavaScript</option>
+                                            <option value="html-css">HTML/CSS</option>
+                                            <option value="react">React</option>
+                                        </select>
+                                        <select class="filter-select">
+                                            <option value="all">All Time</option>
+                                            <option value="week">This Week</option>
+                                            <option value="month">This Month</option>
+                                            <option value="year">This Year</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="search-results">
+                                        <p class="search-prompt">Enter your search query above to find existing questions and answers.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Quick Answer Tab -->
+                            <div class="tab-panel" id="ai-assist-panel">
+                                <div class="ai-assist-container">
+                                    <div class="ai-intro">
+                                        <div class="ai-icon">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <div class="ai-description">
+                                            <h3>EdTech AI Assistant</h3>
+                                            <p>Get quick answers to common questions without waiting. Our AI can help with simple coding problems, conceptual questions, and point you to the right resources.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="ai-chat">
+                                        <div class="ai-messages">
+                                            <div class="ai-message">
+                                                <div class="ai-avatar">
+                                                    <i class="fas fa-robot"></i>
+                                                </div>
+                                                <div class="ai-bubble">
+                                                    <p>Hi there! I'm your EdTech AI assistant. I can help answer programming questions, explain concepts, or point you to useful resources. What would you like to know?</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ai-input">
+                                            <textarea placeholder="Ask the AI for a quick answer..."></textarea>
+                                            <button class="btn-primary ai-send">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="ai-suggestions">
+                                            <span>Try asking:</span>
+                                            <button class="ai-suggestion">What is useState in React?</button>
+                                            <button class="ai-suggestion">How to center a div with CSS?</button>
+                                            <button class="ai-suggestion">Explain async/await</button>
+                                        </div>
+                                        
+                                        <div class="ai-footer">
+                                            <p><i class="fas fa-info-circle"></i> For complex questions or detailed discussions, please use the "Ask Question" tab to post to the community.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer ask-community-footer">
+                            <div class="community-experts">
+                                <div class="experts-intro">
+                                    <i class="fas fa-award"></i>
+                                    <span>Top experts ready to help:</span>
+                                </div>
+                                <div class="experts-avatars">
+                                    <img src="img/community/code-with harry.png" alt="Code With Harry" title="Code With Harry - JavaScript Expert">
+                                    <img src="img/community/Physics wallah.png" alt="Physics Wallah" title="Physics Wallah - Education Expert">
+                                    <img src="img/community/Aman Dhatterwal.png" alt="Aman Dhatterwal" title="Aman Dhatterwal - Career Expert">
+                                    <img src="img/community/gate-smashers.png" alt="Gate Smashers" title="Gate Smashers - GATE Expert">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Discussion Modal -->
+        <div class="modal" id="discussionModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Create a New Discussion</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="discussion-title">Title</label>
+                        <input type="text" id="discussion-title" placeholder="Enter a descriptive title">
+                    </div>
+                    <div class="form-group">
+                        <label for="discussion-category">Category</label>
+                        <select id="discussion-category">
+                            <option value="">Select a category</option>
+                            <option value="html-css">HTML/CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="react">React</option>
+                            <option value="node">Node.js</option>
+                            <option value="database">Databases</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="discussion-content">Content</label>
+                        <textarea id="discussion-content" rows="6" placeholder="Describe your topic in detail..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <div class="tags-input">
+                            <input type="text" placeholder="Add tags separated by commas...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-outline cancel-discussion">Cancel</button>
+                    <button class="btn-primary create-discussion">Create Discussion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/community.js"></script>
+    <script src="js/trophy-fix.js"></script>
+    
+    <!-- Audio element for Physics Wallah (hidden) -->
+    <audio id="physics-wallah-audio" preload="auto">
+        <source src="audio/WhatsApp Audio 2025-03-23 at 3.41.42 PM.mpeg" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        // Variable to track if audio is currently playing
+        let isAudioPlaying = false;
+        
+        // Function to play Physics Wallah audio once
+        function playPhysicsWallahAudio() {
+            const audio = document.getElementById('physics-wallah-audio');
+            const card = document.getElementById('physics-wallah-card');
+            
+            // Only play if audio is not already playing
+            if (!isAudioPlaying) {
+                // Reset audio to beginning
+                audio.currentTime = 0;
+                
+                // Set flag to indicate audio is playing
+                isAudioPlaying = true;
+                
+                // Add visual feedback to the card
+                card.classList.add('playing-audio');
+                
+                // Play the audio
+                audio.play();
+                
+                // When audio ends
+                audio.onended = function() {
+                    // Remove visual feedback
+                    card.classList.remove('playing-audio');
+                    
+                    // Reset playing flag
+                    isAudioPlaying = false;
+                };
+            }
+            
+            // Prevent click on the Connect button from triggering the audio
+            const connectButton = card.querySelector('button');
+            if (connectButton) {
+                connectButton.onclick = function(event) {
+                    event.stopPropagation();
+                };
+            }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preload the audio file
+            const audio = document.getElementById('physics-wallah-audio');
+            audio.load();
+            
+            // Set up click event directly in JavaScript for better control
+            const physicsWallahCard = document.getElementById('physics-wallah-card');
+            if (physicsWallahCard) {
+                physicsWallahCard.addEventListener('click', playPhysicsWallahAudio);
+            }
+        });
+    </script>
+</body>
+</html> 

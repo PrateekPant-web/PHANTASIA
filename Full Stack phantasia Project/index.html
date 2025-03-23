@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech - Smart Education Platform</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* Ensure sidebar nav is always visible with high contrast */
+      .sidebar {
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+      }
+      .nav-links a {
+        color: #1f2937 !important; 
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-weight: 600 !important;
+      }
+      .nav-links a i {
+        color: #4361ee !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: inline-block !important;
+      }
+      .nav-links a i.fa-trophy, 
+      .nav-links a i.achievement-icon {
+        color: #f97316 !important;
+      }
+      .nav-links a span {
+        color: #1f2937 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: inline !important;
+      }
+      .nav-links li.active a {
+        background-color: #f9f9fb !important;
+        color: #4361ee !important;
+        font-weight: 700 !important;
+      }
+      .nav-links li.active a i {
+        color: #4361ee !important;
+      }
+    </style>
+</head>
+<body onload="forceNavVisibility()">
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="img/logo.svg" alt="EdTech Logo" class="logo-img" width="200" height="200">
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="index.html" style="color: #1f2937 !important;"><i class="fas fa-home" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Dashboard</span></a></li>
+                <li><a href="courses.html" style="color: #1f2937 !important;"><i class="fas fa-book" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Courses</span></a></li>
+                <li><a href="calendar.html" style="color: #1f2937 !important;"><i class="fas fa-calendar-alt" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Calendar</span></a></li>
+                <li><a href="achievements.html" style="color: #1f2937 !important;"><i class="fas fa-trophy achievement-icon" style="color: #f97316 !important;"></i> <span style="color: #1f2937 !important;">Achievements</span></a></li>
+                <li><a href="community.html" style="color: #1f2937 !important;"><i class="fas fa-users" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Community</span></a></li>
+                <li><a href="settings.html" style="color: #1f2937 !important;"><i class="fas fa-cog" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Settings</span></a></li>
+            </ul>
+            <div class="user-info">
+                <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Prateek Pant">
+                <div>
+                    <h4>Prateek Pant</h4>
+                    <p>Premium Student</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for courses, topics...">
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-container" data-tooltip="Toggle Dark Mode">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button class="message-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></button>
+                    <a href="login/login.html" class="login-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <div class="welcome-message">
+                    <h1>Welcome back, Prateek <span class="wave">👋</span></h1>
+                    <p class="subtitle">Here's an overview of your learning journey</p>
+                </div>
+                
+                <!-- Stats Overview -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon course-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="counter-num" data-count="7">7</h3>
+                            <p>Active Courses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon time-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="counter-num" data-count="42">42h</h3>
+                            <p>Hours Learned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon certificate-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="counter-num" data-count="12">12</h3>
+                            <p>Certificates</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon streak-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="counter-num" data-count="15">15</h3>
+                            <p>Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Progress & Activity -->
+                <div class="dashboard-grid">
+                    
+                    <div class="dashboard-card learning-progress">
+                        <div class="card-header">
+                            <h2>Learning Progress</h2>
+                            <div class="dropdown">
+                                <button>This Month <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="learningChart"></canvas>
+                        </div>
+                    </div>
+
+                   
+                    <div class="dashboard-card recent-activity">
+                        <div class="card-header">
+                            <h2>Recent Activity</h2>
+                            <div class="dropdown">
+                                <button>View All <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon completed">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Completed "JavaScript Fundamentals" quiz</h4>
+                                    <p>Score: 92% · 2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon watched">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Watched "React Hooks Tutorial"</h4>
+                                    <p>Progress: 100% · Yesterday</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon earned">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Earned "CSS Master" badge</h4>
+                                    <p>Completed all CSS modules · 2 days ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon submitted">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Submitted project "Personal Portfolio"</h4>
+                                    <p>Awaiting review · 3 days ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    <div class="dashboard-card deadlines">
+                        <div class="card-header">
+                            <h2>Upcoming Deadlines</h2>
+                            <div class="dropdown">
+                                <button>This Week <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="deadline-list">
+                            <div class="deadline-item urgent">
+                                <div class="deadline-date">
+                                    <h3>12</h3>
+                                    <p>JUN</p>
+                                </div>
+                                <div class="deadline-details">
+                                    <h4>Final Project Submission</h4>
+                                    <p>Web Development Bootcamp</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <span>75% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <h3>15</h3>
+                                    <p>JUN</p>
+                                </div>
+                                <div class="deadline-details">
+                                    <h4>Weekly Quiz</h4>
+                                    <p>Python for Data Science</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar" style="width: 0%;"></div>
+                                        <span>Not started</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <h3>18</h3>
+                                    <p>JUN</p>
+                                </div>
+                                <div class="deadline-details">
+                                    <h4>Group Discussion</h4>
+                                    <p>UX Design Principles</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar" style="width: 30%;"></div>
+                                        <span>30% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="dashboard-card recommended">
+                        <div class="card-header">
+                            <h2>Recommended For You</h2>
+                            <div class="dropdown">
+                                <button>View All <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="course-recommendations">
+                            <div class="recommended-course">
+                                <img src="https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg" alt="UX Design Course">
+                                <div class="course-info">
+                                    <div class="course-level">Advanced</div>
+                                    <h4>Advanced UX Design Principles</h4>
+                                    <p>Learn professional UX methods used by top designers</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-user"></i> John Miller</span>
+                                        <span><i class="fas fa-star"></i> 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-course">
+                                <img src="https://img.freepik.com/free-vector/gradient-node-js-background_23-2149373220.jpg" alt="Node.js Course">
+                                <div class="course-info">
+                                    <div class="course-level">Intermediate</div>
+                                    <h4>Node.js Backend Development</h4>
+                                    <p>Build scalable APIs and server-side applications</p>
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-user"></i> Sarah Chen</span>
+                                        <span><i class="fas fa-star"></i> 4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/trophy-fix.js"></script>
+</body>
+</html> 

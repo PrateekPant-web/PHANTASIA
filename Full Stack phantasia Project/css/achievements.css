@@ -1,0 +1,1341 @@
+/* Achievements Page Styles */
+:root {
+    --primary-color: #4f46e5;
+    --primary-light: #6366f1;
+    --primary-dark: #4338ca;
+    --secondary-color: #f97316;
+    --accent-color: #a855f7;
+    --text-dark: #1e293b;
+    --text-light: #94a3b8;
+    --text-muted: #64748b;
+    --background-light: #f8fafc;
+    --background-white: #ffffff;
+    --background-gray: #f1f5f9;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Badge Colors */
+    --badge-blue: #3b82f6;
+    --badge-green: #10b981;
+    --badge-purple: #8b5cf6;
+    --badge-orange: #f97316;
+    --badge-red: #ef4444;
+    --badge-yellow: #f59e0b;
+    --badge-teal: #14b8a6;
+    --badge-pink: #ec4899;
+    
+    /* Dark mode variables */
+    --dark-bg: #1a1c23;
+    --dark-card-bg: #252836;
+    --dark-border: #374151;
+    --dark-text: #e5e7eb;
+    --dark-text-muted: #9ca3af;
+    --dark-hover: rgba(255, 255, 255, 0.1);
+    --dark-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Main Container for Achievements */
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* User Stats Overview */
+.user-stats-overview {
+    background-color: var(--background-white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    animation: slideInUp 0.5s ease;
+    border: 1px solid transparent;
+}
+
+.user-profile {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.user-avatar {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.user-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+    transition: all 0.3s ease;
+}
+
+.level-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border-radius: 1rem;
+    padding: 0.35rem 0.85rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.user-info-details h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.user-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.user-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+.user-metrics {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+}
+
+.metric:hover {
+    transform: translateY(-5px);
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-top: 0.25rem;
+}
+
+.progress-to-next-level {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(79, 70, 229, 0.05);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.level-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.progress-bar {
+    height: 0.75rem;
+    background-color: rgba(79, 70, 229, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 1rem;
+    position: relative;
+    transition: width 1s ease-in-out;
+    animation: shimmer 3s infinite linear;
+    background-size: 200% 100%;
+}
+
+.progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.4) 50%, 
+        rgba(255,255,255,0) 100%);
+    animation: shimmer 2s infinite linear;
+    background-size: 200% 100%;
+}
+
+.progress-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Dashboard Grid Layout */
+.achievements-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Card Styles */
+.dashboard-card {
+    background-color: var(--background-white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    animation: fadeIn 0.5s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.card-header h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown button:hover {
+    background-color: var(--background-gray);
+    color: var(--primary-color);
+}
+
+/* Badges Collection */
+.badges-collection {
+    grid-column: span 2;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 1rem 0.75rem;
+    border-radius: 1rem;
+    background-color: transparent;
+}
+
+.badge-item:hover {
+    transform: translateY(-8px);
+    background-color: rgba(79, 70, 229, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+}
+
+/* Remove tooltip functionality completely */
+.badge-item .tooltip {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.badge-item:hover .tooltip {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.badge-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-gray);
+    font-size: 1.75rem;
+    color: var(--text-muted);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0) 100%);
+    transform: rotate(45deg);
+    animation: shimmer 4s infinite linear;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.badge-item:hover .badge-icon::after {
+    opacity: 1;
+}
+
+.badge-item.earned .badge-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+}
+
+.badge-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.badge-item.earned .badge-name {
+    color: var(--text-dark);
+}
+
+.badge-item.earned {
+    position: relative;
+}
+
+.badge-item.earned::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--badge-green);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Skill Progress */
+.skill-progress {
+    grid-column: span 2;
+    grid-row: span 2;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.15), 0 8px 10px -6px rgba(79, 70, 229, 0.1);
+    border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.skill-progress:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.2), 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+}
+
+.skill-chart-container {
+    padding: 1.5rem;
+    height: 100%;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-chart-container::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, transparent 50%, rgba(168, 85, 247, 0.05) 100%);
+    top: -50%;
+    left: -50%;
+    border-radius: 50%;
+    animation: rotate 60s linear infinite;
+    pointer-events: none;
+}
+
+.skill-chart-container::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.03) 0%, transparent 70%);
+    top: -25%;
+    left: -25%;
+    animation: pulse-subtle 15s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes pulse-subtle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+.skill-chart {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    min-height: 400px;
+    animation: fadeIn 0.7s ease, scale-in 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 5;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes scale-in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Dark mode support for enhanced elements */
+.dark-mode .skill-chart-container::before {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, transparent 50%, rgba(168, 85, 247, 0.1) 100%);
+}
+
+/* Recent Achievements */
+.recent-achievements {
+    grid-column: span 2;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.recent-achievements:hover {
+    transform: translateY(-5px);
+}
+
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    overflow-y: auto;
+    max-height: 400px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79, 70, 229, 0.3) transparent;
+}
+
+.achievements-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.achievements-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.achievements-list::-webkit-scrollbar-thumb {
+    background-color: rgba(79, 70, 229, 0.3);
+    border-radius: 6px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--background-light);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateX(5px) scale(1.02);
+    background-color: rgba(79, 70, 229, 0.05);
+    border-color: rgba(79, 70, 229, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+.achievement-item:hover::before {
+    opacity: 1;
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.achievement-item:hover .achievement-icon::after {
+    transform: translateX(100%);
+}
+
+.achievement-item:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+}
+
+.achievement-details {
+    flex-grow: 1;
+    transition: transform 0.3s ease;
+}
+
+.achievement-item:hover .achievement-details {
+    transform: translateX(3px);
+}
+
+.achievement-details h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.achievement-details p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.achievement-date {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.achievement-points {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-points::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    top: 0;
+    left: -100%;
+    transition: all 0.6s ease;
+}
+
+.achievement-item:hover .achievement-points {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+}
+
+.achievement-item:hover .achievement-points::after {
+    left: 100%;
+}
+
+/* Dark mode support for recent achievements */
+.dark-mode .achievement-item {
+    background-color: var(--dark-card-bg);
+}
+
+.dark-mode .achievement-item:hover {
+    background-color: rgba(79, 70, 229, 0.15);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Learning Milestones */
+.learning-milestones {
+    grid-column: span 2;
+    transition: all 0.4s ease;
+}
+
+.learning-milestones:hover {
+    transform: translateY(-5px);
+}
+
+.milestones-timeline {
+    padding: 1.5rem;
+    position: relative;
+    overflow-y: auto;
+    max-height: 500px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79, 70, 229, 0.3) transparent;
+}
+
+.milestones-timeline::-webkit-scrollbar {
+    width: 6px;
+}
+
+.milestones-timeline::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.milestones-timeline::-webkit-scrollbar-thumb {
+    background-color: rgba(79, 70, 229, 0.3);
+    border-radius: 6px;
+}
+
+.milestones-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+    opacity: 0.8;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(79, 70, 229, 0.4); }
+    100% { box-shadow: 0 0 15px rgba(79, 70, 229, 0.6); }
+}
+
+.milestone-item {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+    opacity: 0.8;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.milestone-item:hover {
+    opacity: 1;
+    transform: translateX(8px);
+}
+
+.milestone-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--background-gray);
+    margin-right: 1.5rem;
+    position: relative;
+    z-index: 2;
+    margin-left: 22px;
+    border: 3px solid var(--background-white);
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.milestone-item.completed .milestone-marker {
+    background-color: var(--badge-green);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.milestone-item.current .milestone-marker {
+    background-color: var(--primary-color);
+    animation: pulse-marker 2s infinite;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+}
+
+@keyframes pulse-marker {
+    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+.milestone-content {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    background-color: var(--background-light);
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.milestone-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.milestone-item:hover .milestone-content {
+    box-shadow: var(--shadow-md);
+    background-color: rgba(79, 70, 229, 0.05);
+    border-color: rgba(79, 70, 229, 0.1);
+    transform: scale(1.02);
+}
+
+.milestone-item:hover .milestone-content::before {
+    opacity: 1;
+}
+
+.milestone-item:hover .milestone-marker {
+    transform: scale(1.2);
+}
+
+.milestone-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.35rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.milestone-item:hover .milestone-content h4 {
+    transform: translateX(3px);
+    color: var(--primary-color);
+}
+
+.milestone-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.milestone-item:hover .milestone-content p {
+    transform: translateX(3px);
+}
+
+.milestone-date {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-style: italic;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.milestone-item:hover .milestone-date {
+    transform: translateX(3px);
+}
+
+.milestone-progress {
+    margin-top: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.milestone-item:hover .milestone-progress {
+    transform: translateX(3px);
+}
+
+.milestone-progress .progress-bar {
+    height: 0.6rem;
+    margin-bottom: 0.35rem;
+    background-color: rgba(203, 213, 225, 0.3);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-progress .progress-bar .progress {
+    height: 100%;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    position: relative;
+    transition: width 1s ease;
+}
+
+.milestone-progress .progress-bar .progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.4) 50%, 
+        rgba(255,255,255,0) 100%);
+    animation: shine 2s infinite linear;
+    background-size: 200% 100%;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% 0;
+    }
+}
+
+.milestone-progress span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Dark mode support for learning milestones */
+.dark-mode .milestone-item.completed .milestone-marker {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.dark-mode .milestone-item.current .milestone-marker {
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+}
+
+.dark-mode .milestone-content {
+    background-color: var(--dark-card-bg);
+}
+
+.dark-mode .milestone-content::before {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, transparent 100%);
+}
+
+.dark-mode .milestone-item:hover .milestone-content {
+    background-color: rgba(79, 70, 229, 0.15);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .milestone-progress .progress-bar {
+    background-color: rgba(55, 65, 81, 0.5);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Leaderboard */
+.leaderboard {
+    grid-column: span 2;
+}
+
+.leaderboard-list {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--background-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(79, 70, 229, 0.05);
+    border-color: rgba(79, 70, 229, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+.leaderboard-item.top {
+    background-color: rgba(79, 70, 229, 0.08);
+    border-left: 4px solid var(--primary-color);
+}
+
+.rank {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    min-width: 30px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.leaderboard-item .user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--background-white);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover .user-avatar img {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+}
+
+.leaderboard-item.top:nth-child(1) .rank {
+    color: var(--badge-yellow);
+}
+
+.leaderboard-item.top:nth-child(2) .rank {
+    color: var(--badge-purple);
+}
+
+.leaderboard-item.top:nth-child(3) .rank {
+    color: var(--badge-teal);
+}
+
+.user-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex-grow: 1;
+    transition: color 0.3s ease;
+}
+
+.points {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 0.35rem 0.75rem;
+    background-color: rgba(79, 70, 229, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover .points {
+    background-color: rgba(79, 70, 229, 0.2);
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .achievements-dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .badges-collection,
+    .skill-progress,
+    .recent-achievements,
+    .learning-milestones,
+    .leaderboard {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .achievements-dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-metrics {
+        justify-content: center;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .achievement-item,
+    .leaderboard-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .achievement-details,
+    .user-name {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Dark Mode Support */
+.dark-mode .user-stats-overview,
+.dark-mode .achievements-container,
+.dark-mode .dashboard-card,
+.dark-mode .user-profile,
+.dark-mode .user-metrics-item,
+.dark-mode .progress-to-next-level,
+.dark-mode .milestone-content,
+.dark-mode .milestone-item:hover .milestone-content,
+.dark-mode .leaderboard-item,
+.dark-mode .badge-item {
+    background-color: var(--dark-card-bg);
+    border-color: var(--dark-border);
+}
+
+.dark-mode .user-info h3,
+.dark-mode .user-name,
+.dark-mode .milestone-content h4,
+.dark-mode .card-header h3,
+.dark-mode .badge-name,
+.dark-mode .achievement-title {
+    color: var(--dark-text);
+}
+
+.dark-mode .user-subtitle,
+.dark-mode .user-metrics-item h4,
+.dark-mode .milestone-content p,
+.dark-mode .milestone-date,
+.dark-mode .badge-desc,
+.dark-mode .achievement-date {
+    color: var(--dark-text-muted);
+}
+
+.dark-mode .milestone-marker {
+    border-color: var(--dark-card-bg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .milestones-timeline::before {
+    background: linear-gradient(180deg, var(--primary-color), rgba(79, 70, 229, 0.5));
+}
+
+.dark-mode .leaderboard-item:hover,
+.dark-mode .milestone-item:hover .milestone-content {
+    background-color: rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .leaderboard-item.top {
+    background-color: rgba(79, 70, 229, 0.2);
+}
+
+.dark-mode .rank,
+.dark-mode .achievement-points,
+.dark-mode .points {
+    color: var(--primary-color);
+}
+
+.dark-mode .badge-item:hover {
+    background-color: rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .dashboard-card {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .dashboard-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background-color: rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+.dark-mode .user-metrics-item:hover {
+    background-color: rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 1024px) {
+    .achievements-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .skill-progress,
+    .learning-milestones,
+    .leaderboard,
+    .recent-achievements {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .achievements-dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-stats-overview {
+        flex-direction: column;
+    }
+    
+    .user-profile {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .user-metrics {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .milestone-marker {
+        margin-left: 18px;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .badge-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-metrics {
+        grid-template-columns: 1fr;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .milestone-marker {
+        margin-left: 12px;
+    }
+    
+    .milestone-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .milestone-content p {
+        font-size: 0.8rem;
+    }
+    
+    .leaderboard-item {
+        padding: 0.5rem;
+    }
+    
+    .rank {
+        min-width: 25px;
+        font-size: 1rem;
+    }
+    
+    .leaderboard-item .user-avatar img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .user-name {
+        font-size: 0.8rem;
+    }
+    
+    .points {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Dark mode tooltip */
+.dark-mode .badge-item .tooltip {
+    background: rgba(35, 41, 50, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .badge-item .tooltip:after {
+    border-color: rgba(35, 41, 50, 0.95) transparent transparent transparent;
+}
+
+.skill-progress .card-header {
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    border-bottom: 1px solid rgba(79, 70, 229, 0.1);
+    padding: 1.25rem 1.5rem;
+}
+
+.skill-progress .card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.skill-progress .card-header h2 i {
+    color: var(--primary-color);
+    margin-right: 0.75rem;
+    font-size: 1.35rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-progress:hover .card-header h2 i {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.skill-chart-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.skill-chart-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+/* Dark mode support */
+.dark-mode .skill-progress .card-header {
+    border-bottom-color: rgba(79, 70, 229, 0.2);
+}
+
+.dark-mode .skill-progress .card-header h2 {
+    color: var(--dark-text);
+}
+
+.dark-mode .skill-chart-title {
+    color: var(--dark-text-muted);
+} 

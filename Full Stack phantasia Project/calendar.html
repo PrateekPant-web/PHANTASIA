@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech - Calendar</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/custom-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onload="forceNavVisibility()">
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="img/logo.svg" alt="EdTech Logo" class="logo-img" width="200" height="200">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: #1f2937 !important;"><i class="fas fa-home" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Dashboard</span></a></li>
+                <li><a href="courses.html" style="color: #1f2937 !important;"><i class="fas fa-book" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Courses</span></a></li>
+                <li class="active"><a href="calendar.html" style="color: #4361ee !important;"><i class="fas fa-calendar-alt" style="color: #4361ee !important;"></i> <span style="color: #4361ee !important;">Calendar</span></a></li>
+                <li><a href="achievements.html" style="color: #1f2937 !important;"><i class="fas fa-trophy achievement-icon" style="color: #f97316 !important;"></i> <span style="color: #1f2937 !important;">Achievements</span></a></li>
+                <li><a href="community.html" style="color: #1f2937 !important;"><i class="fas fa-users" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Community</span></a></li>
+                <li><a href="settings.html" style="color: #1f2937 !important;"><i class="fas fa-cog" style="color: #4361ee !important;"></i> <span style="color: #1f2937 !important;">Settings</span></a></li>
+            </ul>
+            <div class="user-info">
+                <img src="img/prateek/Screenshot 2025-03-23 154950.png" alt="Prateek Pant">
+                <div>
+                    <h4>Prateek Pant</h4>
+                    <p>Premium Student</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for events...">
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-container" data-tooltip="Toggle Dark Mode">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <button class="message-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></button>
+                    <a href="login/login.html" class="login-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h1>Calendar</h1>
+                    <p class="subtitle">Manage your classes, assignments, and events</p>
+                </div>
+
+                <!-- Calendar Controls -->
+                <div class="calendar-controls">
+                    <div class="date-navigation">
+                        <button class="nav-btn prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h2 class="current-month">June 2023</h2>
+                        <button class="nav-btn next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn" data-view="month">Month</button>
+                        <button class="view-btn active" data-view="week">Week</button>
+                        <button class="view-btn" data-view="day">Day</button>
+                        <button class="view-btn" data-view="agenda">Agenda</button>
+                    </div>
+                    <button class="btn-primary add-event-btn"><i class="fas fa-plus"></i> Add Event</button>
+                </div>
+
+                <!-- Calendar View -->
+                <div class="calendar-view">
+                    <!-- Week View Headers -->
+                    <div class="week-header">
+                        <div class="time-column"></div>
+                        <div class="day-column">
+                            <div class="day-name">MON</div>
+                            <div class="day-number">12</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">TUE</div>
+                            <div class="day-number">13</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">WED</div>
+                            <div class="day-number current-day">14</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">THU</div>
+                            <div class="day-number">15</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">FRI</div>
+                            <div class="day-number">16</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">SAT</div>
+                            <div class="day-number">17</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-name">SUN</div>
+                            <div class="day-number">18</div>
+                        </div>
+                    </div>
+
+                    <!-- Week View Grid -->
+                    <div class="week-grid">
+                        <!-- Time Column -->
+                        <div class="time-column">
+                            <div class="time-slot">8:00 AM</div>
+                            <div class="time-slot">9:00 AM</div>
+                            <div class="time-slot">10:00 AM</div>
+                            <div class="time-slot">11:00 AM</div>
+                            <div class="time-slot">12:00 PM</div>
+                            <div class="time-slot">1:00 PM</div>
+                            <div class="time-slot">2:00 PM</div>
+                            <div class="time-slot">3:00 PM</div>
+                            <div class="time-slot">4:00 PM</div>
+                            <div class="time-slot">5:00 PM</div>
+                            <div class="time-slot">6:00 PM</div>
+                            <div class="time-slot">7:00 PM</div>
+                        </div>
+                        
+                        <!-- Monday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event lecture" style="top: 60px; height: 100px;">
+                                <div class="event-time">9:00 - 10:00 AM</div>
+                                <div class="event-title">JavaScript Fundamentals</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-user"></i> David Miller</span>
+                                    <span><i class="fas fa-video"></i> Live Session</span>
+                                </div>
+                            </div>
+                            <div class="calendar-event assignment" style="top: 360px; height: 60px;">
+                                <div class="event-time">3:00 - 3:30 PM</div>
+                                <div class="event-title">Weekly Quiz Submission</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tuesday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event lab" style="top: 180px; height: 120px;">
+                                <div class="event-time">11:00 AM - 1:00 PM</div>
+                                <div class="event-title">React Components Lab</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-laptop-code"></i> Practical Session</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Wednesday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event lecture" style="top: 120px; height: 100px;">
+                                <div class="event-time">10:00 - 11:00 AM</div>
+                                <div class="event-title">UI/UX Design Principles</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-user"></i> Emily Chen</span>
+                                    <span><i class="fas fa-video"></i> Live Session</span>
+                                </div>
+                            </div>
+                            <div class="calendar-event study-group" style="top: 420px; height: 120px;">
+                                <div class="event-time">3:30 - 5:30 PM</div>
+                                <div class="event-title">Group Project Meeting</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-users"></i> Team 3</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Thursday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event deadline" style="top: 300px; height: 60px;">
+                                <div class="event-time">1:00 PM</div>
+                                <div class="event-title">Assignment Deadline</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-exclamation-circle"></i> CSS Layout Project</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Friday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event lecture" style="top: 0px; height: 100px;">
+                                <div class="event-time">8:00 - 9:00 AM</div>
+                                <div class="event-title">Backend Development</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-user"></i> Michael Rodriguez</span>
+                                    <span><i class="fas fa-video"></i> Live Session</span>
+                                </div>
+                            </div>
+                            <div class="calendar-event workshop" style="top: 540px; height: 120px;">
+                                <div class="event-time">5:00 - 7:00 PM</div>
+                                <div class="event-title">Coding Workshop</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Virtual Room 3</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Saturday Column -->
+                        <div class="day-column">
+                            <div class="calendar-event study-group" style="top: 240px; height: 120px;">
+                                <div class="event-time">12:00 - 2:00 PM</div>
+                                <div class="event-title">Study Group</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-book"></i> JavaScript Advanced Topics</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sunday Column -->
+                        <div class="day-column">
+                            <!-- No events, day off! -->
+                        </div>
+                        
+                        <!-- Current time indicator -->
+                        <div class="current-time-indicator" style="top: 330px;">
+                            <div class="time-dot"></div>
+                            <div class="time-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events Sidebar -->
+                <div class="upcoming-events">
+                    <div class="sidebar-header">
+                        <h3>Upcoming Events</h3>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="date-day">14</div>
+                                <div class="date-month">JUN</div>
+                            </div>
+                            <div class="event-content">
+                                <h4>UI/UX Design Principles</h4>
+                                <p><i class="far fa-clock"></i> 10:00 - 11:00 AM</p>
+                                <p><i class="fas fa-user"></i> Emily Chen</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="date-day">14</div>
+                                <div class="date-month">JUN</div>
+                            </div>
+                            <div class="event-content">
+                                <h4>Group Project Meeting</h4>
+                                <p><i class="far fa-clock"></i> 3:30 - 5:30 PM</p>
+                                <p><i class="fas fa-users"></i> Team 3</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="date-day">15</div>
+                                <div class="date-month">JUN</div>
+                            </div>
+                            <div class="event-content">
+                                <h4>Assignment Deadline</h4>
+                                <p><i class="far fa-clock"></i> 1:00 PM</p>
+                                <p><i class="fas fa-file-alt"></i> CSS Layout Project</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="date-day">16</div>
+                                <div class="date-month">JUN</div>
+                            </div>
+                            <div class="event-content">
+                                <h4>Backend Development</h4>
+                                <p><i class="far fa-clock"></i> 8:00 - 9:00 AM</p>
+                                <p><i class="fas fa-user"></i> Michael Rodriguez</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="date-day">16</div>
+                                <div class="date-month">JUN</div>
+                            </div>
+                            <div class="event-content">
+                                <h4>Coding Workshop</h4>
+                                <p><i class="far fa-clock"></i> 5:00 - 7:00 PM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Virtual Room 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Modal Component below the main calendar content but before closing main tag -->
+
+            <!-- Event Modal -->
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Event Details</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Modal content will be dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toast Container for Notifications -->
+            <div class="toast-container"></div>
+        </main>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div class="modal" id="addEventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Event</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title</label>
+                        <input type="text" id="eventTitle" placeholder="Enter event title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Date</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select id="eventType" required>
+                                <option value="lecture">Lecture</option>
+                                <option value="lab">Lab Session</option>
+                                <option value="study-group">Study Group</option>
+                                <option value="assignment">Assignment</option>
+                                <option value="deadline">Deadline</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">End Time</label>
+                            <input type="time" id="endTime">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDetails">Details</label>
+                        <textarea id="eventDetails" rows="3" placeholder="Add description or notes"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLocation">Location</label>
+                        <input type="text" id="eventLocation" placeholder="Virtual or physical location">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remindMe"> 
+                            <span>Remind me</span>
+                        </label>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/trophy-fix.js"></script>
+</body>
+</html> 
